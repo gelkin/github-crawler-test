@@ -2,15 +2,7 @@ import json
 import random
 import urllib.request
 from urllib.parse import quote
-from itertools import islice
-
 from bs4 import BeautifulSoup
-
-# todo put variables to config
-# todo clean everything
-# keywords = ["openstack", "nova", "css"]
-# proxies = ["8.129.215.20:8080", "208.80.28.208:8080"]
-# search_type = "Repositories"  # "Issues", "Wikis"
 
 
 def set_proxy(proxies):
@@ -27,6 +19,8 @@ def create_url(keywords, search_type):
 
 def get_links(parsed_html, tag, attrs):
     items = parsed_html.body.find(tag, attrs=attrs)
+    if items is None:
+        return []
     links = []
     for item in items.find_all("div", {"class": "f4 text-normal"}):
         links.append("https://github.com" + item.find("a")["href"])

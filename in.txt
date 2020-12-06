@@ -1,10 +1,12 @@
 {
   "keywords": [
-    "evewvew"
+    "openstack",
+    "nova",
+    "css"
   ],
   "proxies": [
     "8.129.215.20:8080",
     "208.80.28.208:8080"
   ],
-  "type": "Wikis"
+  "type": "Repositories"
 }
